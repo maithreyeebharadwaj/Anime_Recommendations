@@ -1,3 +1,74 @@
+### Queries to get the data into Mysql workbench
+#Anime table
+ 
+create table anime
+(
+  anime_id bigint not null,
+  title varchar(100),
+  genre text,
+  aired varchar(50),
+  episodes int,
+  members bigint,
+  popularity int,
+  ranked int,
+  score double,
+   primary key(anime_id)
+  );
+  
+  
+  
+LOAD DATA local INFILE 'C:/Users/Maithreyee/Downloads/anime.csv'
+INTO TABLE anime
+FIELDS TERMINATED BY ','
+#ENCLOSED BY '"'
+#LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+
+##Reviw table
+
+ create table review
+(
+ uid bigint,
+ profile varchar(50),
+ anime_id bigint,
+ score int,
+ overall int, 
+ story double,
+ animation double,
+ sound double,
+ Characters double,
+ Enjoyment double
+ );
+
+
+LOAD DATA local INFILE 'C:/Users/Maithreyee/Documents/review.csv'
+INTO TABLE review
+FIELDS TERMINATED BY ','
+#ENCLOSED BY '"'
+#LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+Profile Table
+
+ create table profile
+(
+ profile varchar(100),
+ gender varchar(10),
+ favorites_anime bigint
+);
+ 
+ 
+LOAD DATA local INFILE 'C:/Users/Maithreyee/Downloads/Profile3.csv'
+INTO TABLE profile
+FIELDS TERMINATED BY ','
+#ENCLOSED BY '"'
+#LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+
+ 
+
 #### Queires I need for showing my visulizations
 
 #Q. Top animes watched by females ,males and non binary.Based on gender
